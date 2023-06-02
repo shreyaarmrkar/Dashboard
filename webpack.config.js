@@ -9,13 +9,13 @@ module.exports = (webpackConfigEnv, argv) => {
     argv,
   });
 
-  // const standalonePlugin = defaultConfig.plugins.find(
-  //   (p) => p.constructor.name === "StandaloneSingleSpaPlugin"
-  // );
+  const standalonePlugin = defaultConfig.plugins.find(
+    (p) => p.constructor.name === "StandaloneSingleSpaPlugin"
+  );
 
-  // standalonePlugin.options.importMapUrl = new URL(
-  //   "https://react.microfrontends.app/importmap.json"
-  // );
+  standalonePlugin.options.importMapUrl = new URL(
+    "https://react.microfrontends.app/importmap.json"
+  );
 
   const externals = [/^rxjs\/?.*$/];
 
