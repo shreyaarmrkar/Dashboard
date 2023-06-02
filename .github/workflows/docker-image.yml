@@ -22,7 +22,7 @@ jobs:
           git config user.email "<>"
       
       - name: Dependecies
-        run: npm ci
+        run: npm install
       
       - name: Build
         run: npm run build
@@ -35,7 +35,7 @@ jobs:
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
         
       - name: Build Docker image
-        run: docker build . --file Dockerfile --tag shreyaarm/test:${{steps.version.outputs.tag}}
+        run: docker build . --file Dockerfile --tag shreyaarm/test
         
       - name: Push to Docker Hub
-        run: docker push shreyaarm/test:${{steps.version.outputs.tag}}
+        run: docker push shreyaarm/test
